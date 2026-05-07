@@ -20,24 +20,24 @@ This project is an ESP32-based interactive escape room simulator developed using
 
 The system uses multiple input devices, including a 4x4 keypad, analog joystick, slide potentiometer, start/reset button, and three color-matching reaction buttons. It gives feedback using a 20x4 I2C LCD, three LEDs, and a buzzer.
 
-The player starts the game using the start button. Before each stage begins, the LCD displays instructions and the player must press `#` on the keypad to continue. This prevents the timer for the stage from starting before the player is ready.
+The player starts the game using the start button. Before each stage begins, the LCD displays instructions and the player must press # on the keypad to continue. This prevents the timer for the stage from starting before the player is ready.
 
 The game has three stages:
 
-1. **Stage 1 – Slider and Keypad Challenge**
+1. **Stage 1: Slider and Keypad Challenge**
 
    * The player moves the slide potentiometer to match four target percentages.
-   * The targets used in the code are `70%`, `25%`, `85%`, and `40%`.
+   * The targets used are: `70%`, `25%`, `85%`, and `40%`.
    * The player must hold the potentiometer within the target range for a short time to reveal each digit.
    * After revealing all digits, the player enters the code using the keypad and submits it using `#`.
 
-2. **Stage 2 – Joystick Sequence Challenge**
+2. **Stage 2: Joystick Sequence Challenge**
 
    * The system generates a 5-step joystick movement sequence.
-   * Some steps are shown as `REVERSE`, meaning the player must move the joystick in the opposite direction.
+   * Some steps are shown as `REVERSE` meaning the player must move the joystick in the opposite direction.
    * The player must complete each movement before the stage timer expires.
 
-3. **Stage 3 – LED Reaction Challenge**
+3. **Stage 3: LED Reaction Challenge**
 
    * One of the colored LEDs lights up randomly.
    * The player must press the matching color button quickly.
@@ -84,7 +84,7 @@ The system follows a state-based game flow:
    * The LCD explains the slider challenge.
    * The player presses `#` to start Stage 1.
 
-3. **Stage 1 – Slider and Keypad**
+3. **Stage 1: Slider and Keypad**
 
    * The player adjusts the slide potentiometer to each target percentage.
    * Each correct hold reveals one digit of the code.
@@ -97,7 +97,7 @@ The system follows a state-based game flow:
    * The LCD explains the joystick challenge.
    * The player presses `#` to start Stage 2.
 
-5. **Stage 2 – Joystick Sequence**
+5. **Stage 2: Joystick Sequence**
 
    * The player follows a 5-step direction sequence.
    * If the LCD says `REVERSE`, the player moves in the opposite direction.
@@ -108,7 +108,7 @@ The system follows a state-based game flow:
    * The LCD explains the LED reaction challenge.
    * The player presses `#` to start Stage 3.
 
-7. **Stage 3 – Reaction Challenge**
+7. **Stage 3: Reaction Challenge**
 
    * A random LED turns on.
    * The player presses the matching color button.
@@ -124,7 +124,7 @@ The system follows a state-based game flow:
    * The system displays either `TIME EXPIRED` or `GAME OVER`.
    * The red LED and buzzer provide failure feedback.
 
-![Flowchart](images/state_machine_diagram.png)
+![State Machine Diagram](images/state_machine_diagram.png)
 
 ---
 
@@ -214,20 +214,22 @@ This approach is simple and suitable for the simulation because the project only
 
 ---
 
-## System Photo
-
-Not required because this project is simulation based.
-
----
-
 ## Screenshots
 
 ![Stage 1](images/stage_1.png)
-![Stage 2](images/stage_2.png)
-![Stage 3](images/stage_3.png)
-![Success](images/Success.png)
-![Success](images/failure.png)
+*Stage 1: Slider and Keypad Challenge. The player has matched a target percentage and the LCD reveals one digit of the unlock code.*
 
+![Stage 2](images/stage_2.png)
+*Stage 2: Joystick Sequence Challenge. The LCD shows the current step in the 5-step sequence, including a REVERSE prompt where the player must move opposite to the indicated direction.*
+
+![Stage 3](images/stage_3.png)
+*Stage 3: LED Reaction Challenge. A random LED is lit and the player must press the matching color button before the timer runs out.*
+
+![Success](images/Success.png)
+*Success state: all three stages cleared within the time limit. The LCD displays `YOU ESCAPED!` and the buzzer plays victory feedback.*
+
+![Failure](images/failure.png)
+*Failure state: triggered when the player runs out of attempts or the global timer expires. The red LED and buzzer provide error feedback.*
 
 ---
 
