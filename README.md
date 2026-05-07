@@ -51,8 +51,6 @@ If the player completes all three stages successfully, the LCD displays a succes
 
 The system was designed and simulated using Wokwi.
 
-> Insert the final Wokwi system diagram screenshot here.
-
 ```md
 ![System Diagram](images/system_diagram.png)
 ```
@@ -126,8 +124,6 @@ The system follows a state-based game flow:
 
    * The system displays either `TIME EXPIRED` or `GAME OVER`.
    * The red LED and buzzer provide failure feedback.
-
-> Insert the final flowchart or state diagram here.
 
 ```md
 ![Flowchart](images/state_machine.png)
@@ -229,8 +225,6 @@ Not required because this project is simulation-based.
 
 ## Screenshots
 
-> Insert screenshots of the Wokwi simulation in different states.
-
 ```md
 ![Stage 1](images/stage1.png)
 ![Stage 2](images/stage2.png)
@@ -243,8 +237,5 @@ Not required because this project is simulation-based.
 ---
 
 ## Video
-
-> Add the final demo video link here.
-
 
 The video should show the project running in Wokwi and demonstrate the three stages of the game, including the LCD instructions, inputs, feedback, success state, and failure/reset behavior.
